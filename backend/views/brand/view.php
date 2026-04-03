@@ -1,0 +1,51 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/** @var yii\web\View $this */
+/** @var common\models\Brand $model */
+
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Brands'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
+?>
+<div class="brand-view">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <p>
+        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'slug',
+            'name_uz',
+            'name_ru',
+            'name_en',
+            'logo',
+            'website',
+            'meta_title_uz',
+            'meta_title_ru',
+            'meta_title_en',
+            'meta_description_uz:ntext',
+            'meta_description_ru:ntext',
+            'meta_description_en:ntext',
+            'status',
+            'created_at',
+            'updated_at',
+        ],
+    ]) ?>
+
+</div>
