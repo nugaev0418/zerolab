@@ -1,14 +1,13 @@
 RewriteEngine On
 
-# api
-RewriteRule ^api/?$ api/web/index.php [L]
-RewriteRule ^api/(.*)$ api/web/$1 [L]
+Options -Indexes
 
-# backend
+# backend (sarmin)
 RewriteRule ^sarmin/?$ backend/web/index.php [L]
 RewriteRule ^sarmin/(.*)$ backend/web/$1 [L]
 
 # frontend
+RewriteCond %{REQUEST_URI} !^/backend/web/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^.*$ frontend/web/index.php [L]
