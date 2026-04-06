@@ -39,6 +39,11 @@ if (isset($this->params['meta_description'])) {
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
+        <?= Html::tag('link', '', [
+                'rel' => 'icon',
+                'type' => 'image/png',
+                'href' => Yii::getAlias('@web') . '/logo.png',
+        ]) ?>
 
     </head>
 
@@ -88,21 +93,9 @@ if (isset($this->params['meta_description'])) {
                         </div>
                     </div>
                     <div class="top-bar-language tf-cur justify-content-end">
-                        <div class="tf-currencies">
-                            <select class="image-select center style-default type-currencies color-white">
-                                <option data-thumbnail="front/images/country/fr.svg">EUR € | France</option>
-                                <option data-thumbnail="front/images/country/de.svg">EUR € | Germany</option>
-                                <option selected data-thumbnail="front/images/country/us.svg">USD $ | United States</option>
-                                <option data-thumbnail="front/images/country/vn.svg">VND ₫ | Vietnam</option>
-                            </select>
-                        </div>
+
                         <div class="tf-languages">
-                            <select class="image-select center style-default type-languages color-white">
-                                <option>English</option>
-                                <option>العربية</option>
-                                <option>简体中文</option>
-                                <option>اردو</option>
-                            </select>
+
                         </div>
                     </div>
                 </div>
@@ -125,23 +118,47 @@ if (isset($this->params['meta_description'])) {
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
                         <a href="/" class="logo-header">
-                            <img src="/front/images/logo/logo.svg" alt="logo" class="logo">
+                            <img src="logo.png" style="height: 100px; width: 100px" alt="logo" class="logo">
                         </a>
                     </div>
                     <div class="col-xl-6 tf-md-hidden">
                         <nav class="box-navigation text-center">
                             <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
                                 <li class="menu-item">
-                                    <a href="/" class="item-link">Home</a>
+                                    <a href="/" class="item-link">
+                                        <?=Yii::t('app', 'Home page')?>
+                                    </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/shop" class="item-link">Mahsulotlar</a>
+                                    <a href="/shop" class="item-link">
+                                        <?=Yii::t('app', 'Products')?>
+                                    </a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                     <div class="col-xl-3 col-md-4 col-3">
+
+
                         <ul class="nav-icon d-flex justify-content-end align-items-center gap-20">
+                            <?= \lajax\languagepicker\widgets\LanguagePicker::widget([
+                                    'itemTemplate' => '<li><a class="dropdown-item" href="{link}">{name}</a></li>',
+                                    'activeItemTemplate' => '<a class="nav-icon-item dropdown-toggle" data-bs-toggle="dropdown">{name}</a>',
+                                    'parentTemplate' => '
+                                        <li class="dropdown">
+                                            {activeItem}
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                {items}
+                                            </ul>
+                                        </li>
+                                    ',
+                            ]); ?>
+<!--                            <li>-->
+<!--                                --><?php //= \lajax\languagepicker\widgets\LanguagePicker::widget([
+//                                        'skin' => \lajax\languagepicker\widgets\LanguagePicker::SKIN_DROPDOWN,
+//                                        'size' => \lajax\languagepicker\widgets\LanguagePicker::SIZE_LARGE
+//                                ]); ?>
+<!--                            </li>-->
                             <li class="nav-search">
                                 <a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="nav-icon-item">
                                     <i class="icon icon-search"></i>

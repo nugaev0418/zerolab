@@ -10,19 +10,35 @@ $params = array_merge(
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        'languagepicker'
+    ],
     'controllerNamespace' => 'frontend\controllers',
 
-    'language' => 'uz',
-
-    'on beforeRequest' => function ($event) {
-        $lang = Yii::$app->request->get('lang');
-        if (in_array($lang, ['uz','ru','en'])) {
-            Yii::$app->language = $lang;
-        }
-    },
-
     'components' => [
+        'i18n' => [
+            'translations' => [
+                'app' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'en-US',
+//                    'basePath' => __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'common/messages',
+                ],
+            ],
+        ],
+        'languagepicker' => [
+            'class' => 'lajax\languagepicker\Component',
+            // List of available languages (icons only)
+            'languages' => [
+                'uz' => "O'zbek",
+                'en' => 'English',
+                'ru' => 'Русский',
+            ],
+
+            'cookieName' => 'language_front', // Name of the cookie.
+            'cookieDomain' => $_SERVER['HTTP_HOST'], // Domain of the cookie.
+            'expireDays' => 64, // The expiration time of the cookie is 64 days.
+        ],
         'settings' => [
             'class' => 'common\components\SettingComponent',
         ],

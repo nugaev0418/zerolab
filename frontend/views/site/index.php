@@ -2,9 +2,11 @@
 
 /** @var yii\web\View $this */
 
-$this->title = 'My Yii Application';
+$this->title = Yii::t('app', 'Site title');
 ?>
 
+
+<!--SLIDER-->
 <div class="tf-slideshow slider-home-2 slider-effect-fade position-relative">
     <div dir="ltr"
          class="swiper tf-sw-slideshow swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
@@ -36,7 +38,9 @@ $this->title = 'My Yii Application';
                                     <a href="<?= $slider->url ?>"
                                        class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3">
 
-                                        <span>More</span>
+                                        <span>
+                                            <?=Yii::t('app', 'More')?>
+                                        </span>
                                         <i class="icon icon-arrow-right"></i>
 
                                     </a>
@@ -66,13 +70,16 @@ $this->title = 'My Yii Application';
         </div>
     </div>
 </div>
+<!--END SLIDER-->
 
-
+<!--CATEGORY-->
 <section class="flat-spacing-9">
     <div class="container-full">
         <div class="flat-title wow fadeInUp align-items-start" data-wow-delay="0s"
              style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
-            <span class="title fw-6">Shop by categories</span>
+            <span class="title fw-6">
+                <?=Yii::t('app', 'Shop by categories')?>
+            </span>
         </div>
         <div class="hover-sw-nav">
             <div dir="ltr"
@@ -138,13 +145,16 @@ $this->title = 'My Yii Application';
         </div>
     </div>
 </section>
+<!--END CATEGORY-->
 
-
+<!--NEW PRODUCTS-->
 <section class="flat-spacing-6">
     <div class="container">
         <div class="flat-title mb_1 gap-14">
             <span class="title wow fadeInUp" data-wow-delay="0s"
-                  style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">New Arrivals</span>
+                  style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
+                <?=Yii::t('app', 'New Arrivals')?>
+            </span>
             <p class="sub-title wow fadeInUp" data-wow-delay="0s"
                style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">Shop the Latest Styles: Stay
                 ahead of the
@@ -212,8 +222,11 @@ $this->title = 'My Yii Application';
 
         </div>
         <div class="tf-pagination-wrap view-more-button text-center">
-            <button class="tf-btn-loading tf-loading-default style-2 btn-loadmore"><span class="text">Show all products</span></button>
+            <button class="tf-btn-loading tf-loading-default style-2 btn-loadmore px-3">
+                <span class="text">
+                    <?= Yii::t('app', 'Show all products') ?>
+                </span></button>
         </div>
     </div>
 </section>
-
+<!--END NEW PRODUCTS-->
