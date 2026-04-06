@@ -1,13 +1,18 @@
-RewriteEngine On
-
 Options -Indexes
 
-# backend (sarmin)
+RewriteEngine On
+
+# =========================
+# BACKEND ( /sarmin )
+# =========================
 RewriteRule ^sarmin/?$ backend/web/index.php [L]
 RewriteRule ^sarmin/(.*)$ backend/web/$1 [L]
 
-# frontend
+# =========================
+# FRONTEND ( asosiy site )
+# =========================
 RewriteCond %{REQUEST_URI} !^/backend/web/
+RewriteCond %{REQUEST_URI} !^/frontend/web/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^.*$ frontend/web/index.php [L]
+RewriteRule ^(.*)$ frontend/web/index.php [L]
