@@ -42,7 +42,7 @@ if (isset($this->params['meta_description'])) {
         <?= Html::tag('link', '', [
                 'rel' => 'icon',
                 'type' => 'image/png',
-                'href' => Yii::getAlias('@web') . '/logo.png',
+                'href' => '/logo.png',
         ]) ?>
 
     </head>
