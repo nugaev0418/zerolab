@@ -1,18 +1,22 @@
-Options -Indexes
-
 RewriteEngine On
 
-# =========================
-# BACKEND ( /sarmin )
-# =========================
-RewriteRule ^sarmin/?$ backend/web/index.php [L]
-RewriteRule ^sarmin/(.*)$ backend/web/$1 [L]
+# End the processing, if a rewrite already occurred
+RewriteRule ^(frontend|backend|api)/web/ - [L]
 
-# =========================
-# FRONTEND ( asosiy site )
-# =========================
-RewriteCond %{REQUEST_URI} !^/backend/web/
-RewriteCond %{REQUEST_URI} !^/frontend/web/
+# Handle the case of backend, skip ([S=1]) the following rule, if current matched
+RewriteRule ^api(/(.*))?$ api/web/$2 [S=2]
+
+# Handle the case of backend, skip ([S=1]) the following rule, if current matched
+RewriteRule ^sarmin(/(.*))?$ backend/web/$2 [S=1]
+
+# handle the case of frontend
+RewriteRule .* frontend/web/$0
+
+# Uncomment the following, if you want speaking URL
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ frontend/web/index.php [L]
+RewriteRule ^([^/]+/web)/.*$ $1/index.php
+
+#RewriteEngine On
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
