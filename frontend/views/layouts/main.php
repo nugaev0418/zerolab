@@ -134,6 +134,16 @@ if (isset($this->params['meta_description'])) {
                                         <?=Yii::t('app', 'Products')?>
                                     </a>
                                 </li>
+                                <li class="menu-item">
+                                    <a href="/contact" class="item-link">
+                                        <?=Yii::t('app', 'Contact')?>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="/about" class="item-link">
+                                        <?=Yii::t('app', 'About')?>
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
                     </div>

@@ -19,7 +19,7 @@ return [
     'components' => [
         'i18n' => [
             'translations' => [
-                'app' => [
+                'app*' => [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceLanguage' => 'en-US',
 //                    'basePath' => __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'common/messages',

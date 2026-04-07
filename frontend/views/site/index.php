@@ -150,15 +150,12 @@ $this->title = Yii::t('app', 'Site title');
 <!--NEW PRODUCTS-->
 <section class="flat-spacing-6">
     <div class="container">
-        <div class="flat-title mb_1 gap-14">
+        <div class="flat-title mb_2 gap-14">
             <span class="title wow fadeInUp" data-wow-delay="0s"
                   style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
                 <?=Yii::t('app', 'New Arrivals')?>
             </span>
-            <p class="sub-title wow fadeInUp" data-wow-delay="0s"
-               style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">Shop the Latest Styles: Stay
-                ahead of the
-                curve with our newest arrivals</p>
+
         </div>
         <div>
 
