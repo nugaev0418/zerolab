@@ -1,14 +1,14 @@
 RewriteEngine On
 
-# HTTPS majburiy (optional)
+# HTTPS (ixtiyoriy)
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # API
-RewriteRule ^api(/(.*))?$ api/web/$2 [L,QSA]
+RewriteRule ^api/?(.*)$ api/web/$1 [L,QSA]
 
-# Backend (sizda sarmin)
-RewriteRule ^sarmin(/(.*))?$ backend/web/$2 [L,QSA]
+# Backend (sarmin)
+RewriteRule ^sarmin/?(.*)$ backend/web/$1 [L,QSA]
 
 # Frontend (default)
 RewriteRule ^(.*)$ frontend/web/$1 [L,QSA]
