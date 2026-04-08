@@ -1,14 +1,5 @@
 RewriteEngine On
-Redirect 301 /test https://google.com
-# HTTPS (ixtiyoriy)
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# API
-RewriteRule ^api/?(.*)$ api/web/$1 [L,QSA]
-
-# Backend (sarmin)
-RewriteRule ^sarmin/?(.*)$ backend/web/$1 [L,QSA]
-
-# Frontend (default)
+# frontend
+RewriteRule ^$ frontend/web/ [L]
 RewriteRule ^(.*)$ frontend/web/$1 [L,QSA]
