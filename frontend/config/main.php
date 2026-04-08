@@ -19,7 +19,7 @@ return [
     'components' => [
         'i18n' => [
             'translations' => [
-                'app*' => [
+                'app' => [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceLanguage' => 'en-US',
 //                    'basePath' => __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'common/messages',
@@ -70,12 +70,12 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'site/index',
                 'product/add-review' => 'product/add-review',
                 'category/<slug>' => 'category/view',
                 'product/<slug>' => 'product/view',
                 'brand/<slug>' => 'brand/view',
                 'shop' => 'shop/index',
+                '' => 'site/index',
             ],
         ],
     ],
