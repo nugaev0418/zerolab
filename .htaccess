@@ -1,5 +1,5 @@
 RewriteEngine On
-
+Redirect 301 /test https://google.com
 # HTTPS (ixtiyoriy)
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
