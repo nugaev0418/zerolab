@@ -1,4 +1,6 @@
 <?php
+
+use common\models\Setting;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -39,7 +41,7 @@ $this->title = $model->{'meta_title_' . $lang} ?: $model->{'name_' . $lang};
                                 <h4><?= Html::encode($model->{'name_' . $lang}) ?></h4>
                             </div>
                             <div class="tf-product-info-badges">
-                                Brand
+                                <?= Yii::t('app', 'Brand') ?>
                                 <div class="badges"><strong>
                                         <?= Html::a(
                                                 $model->brand->{'name_' . $lang},
@@ -51,21 +53,27 @@ $this->title = $model->{'meta_title_' . $lang} ?: $model->{'name_' . $lang};
 
 
                             <div>
-                                <p>Catalog Number: <?= Html::encode($model->catalog_number) ?></p>
+                                <p><?= Yii::t('app', 'Catalog Number') ?>: <?= Html::encode($model->catalog_number) ?></p>
                             </div>
 
                             <div>
-                                <b>Short Desc:</b>
+                                <b><?= Yii::t('app', 'Short Description') ?>:</b>
                                 <p><?= Html::encode($model->{'short_description_' . $lang}) ?></p>
                             </div>
 
 
                             <div class="tf-product-info-buy-button">
                                 <form class="">
-                                    <a href="#" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart"><span>Narxini bilish</span></a>
+                                    <a target="_blank" href="<?= Setting::get('telegram')?>" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart">
+                                        <span>
+                                            <?= Yii::t('app', 'Find out the price') ?>
+                                        </span>
+                                    </a>
 
                                     <div class="w-100">
-                                        <a href="#" class="btns-full">Telegram kanal</a>
+                                        <a target="_blank" href="<?= Setting::get('telegram')?>" class="btns-full">
+                                            <?= Yii::t('app', 'Telegram channel') ?>
+                                        </a>
                                     </div>
                                 </form>
                             </div>
@@ -88,11 +96,11 @@ $this->title = $model->{'meta_title_' . $lang} ?: $model->{'name_' . $lang};
                 <div class="widget-tabs style-has-border">
                     <ul class="widget-menu-tab">
                         <li class="item-title active">
-                            <span class="inner">Description</span>
+                            <span class="inner"><?= Yii::t('app', 'Description') ?></span>
                         </li>
 
                         <li class="item-title">
-                            <span class="inner">Review</span>
+                            <span class="inner"><?= Yii::t('app', 'Review') ?></span>
                         </li>
 
                     </ul>
@@ -121,7 +129,7 @@ $this->title = $model->{'meta_title_' . $lang} ?: $model->{'name_' . $lang};
                                                 <?= number_format($avg, 1) ?>
                                             </h1>
 
-                                            <p>(<?= $count ?> Reviews)</p>
+                                            <p>(<?= $count ?> )</p>
                                         </div>
                                         <div class="rating-score">
                                             <div class="item">
@@ -168,14 +176,16 @@ $this->title = $model->{'meta_title_' . $lang} ?: $model->{'name_' . $lang};
                                     </div>
                                     <div>
                                         <div class="tf-btn btn-outline-dark fw-6 btn-comment-review btn-cancel-review">
-                                            Cancel Review</div>
+                                            <?= Yii::t('app', 'Cancel Review') ?>
+                                            </div>
                                         <div class="tf-btn btn-outline-dark fw-6 btn-comment-review btn-write-review">
-                                            Write a review</div>
+                                            <?= Yii::t('app', 'Write a review') ?>
+                                            </div>
                                     </div>
                                 </div>
                                 <div class="reply-comment cancel-review-wrap">
                                     <div class="d-flex mb_24 gap-20 align-items-center justify-content-between flex-wrap">
-                                        <h5 class="">03 Comments</h5>
+                                        <h5 class=""><?= $count ?> <?= Yii::t('app', 'Comments')?></h5>
                                         <div class="d-flex align-items-center gap-12">
                                             <div class="text-caption-1">Sort by:</div>
                                             <div class="tf-dropdown-sort" data-bs-toggle="dropdown">
@@ -223,9 +233,9 @@ $this->title = $model->{'meta_title_' . $lang} ?: $model->{'name_' . $lang};
 
                                     <input type="hidden" class="form-control mt-2" name="product_id" value="<?= $model->id ?>">
 
-                                    <input type="text" class="form-control mt-2" name="full_name" placeholder="Your name" required>
+                                    <input type="text" class="form-control mt-2" name="full_name" placeholder="<?= Yii::t('app', 'Your name')?>" required>
 
-                                    <textarea name="review" class="form-control mt-2" placeholder="Your review" required></textarea>
+                                    <textarea name="review" class="form-control mt-2" placeholder="<?= Yii::t('app', 'Your review')?>" required></textarea>
 
                                     <select name="rating" class="form-control mt-2">
                                         <option value="5">5</option>
@@ -236,7 +246,7 @@ $this->title = $model->{'meta_title_' . $lang} ?: $model->{'name_' . $lang};
                                     </select>
 
                                     <button type="submit" class="tf-btn btn-fill mt-2">
-                                        Submit
+                                        <?= Yii::t('app', 'Submit')?>
                                     </button>
 
                                 </form>

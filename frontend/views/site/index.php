@@ -219,10 +219,9 @@ $this->title = Yii::t('app', 'Site title');
 
         </div>
         <div class="tf-pagination-wrap view-more-button text-center">
-            <button class="tf-btn-loading tf-loading-default style-2 btn-loadmore px-3">
-                <span class="text">
-                    <?= Yii::t('app', 'Show all products') ?>
-                </span></button>
+            <a href="/shop" class="btn btn-outline">
+                <?= Yii::t('app', 'Show all products') ?>
+            </a>
         </div>
     </div>
 </section>

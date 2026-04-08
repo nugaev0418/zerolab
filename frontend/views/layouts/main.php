@@ -75,22 +75,22 @@ if (isset($this->params['meta_description'])) {
                         </div>
                     </div>
                     <div class="text-center overflow-hidden">
-                        <div dir="ltr" class="swiper tf-sw-top_bar" data-preview="1" data-space="0" data-loop="true"
-                             data-speed="1000" data-delay="2000">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <p class="top-bar-text fw-5 text_white">Spring Fashion Sale <a
-                                                href="shop-default.html" title="all collection" class="tf-btn btn-line">Shop
-                                            now<i class="icon icon-arrow1-top-left"></i></a></p>
-                                </div>
-                                <div class="swiper-slide">
-                                    <p class="top-bar-text fw-5 text_white">Summer sale discount off 70%</a></p>
-                                </div>
-                                <div class="swiper-slide">
-                                    <p class="top-bar-text fw-5 text_white">Time to refresh your wardrobe.</a></p>
-                                </div>
-                            </div>
-                        </div>
+<!--                        <div dir="ltr" class="swiper tf-sw-top_bar" data-preview="1" data-space="0" data-loop="true"-->
+<!--                             data-speed="1000" data-delay="2000">-->
+<!--                            <div class="swiper-wrapper">-->
+<!--                                <div class="swiper-slide">-->
+<!--                                    <p class="top-bar-text fw-5 text_white">Spring Fashion Sale <a-->
+<!--                                                href="shop-default.html" title="all collection" class="tf-btn btn-line">Shop-->
+<!--                                            now<i class="icon icon-arrow1-top-left"></i></a></p>-->
+<!--                                </div>-->
+<!--                                <div class="swiper-slide">-->
+<!--                                    <p class="top-bar-text fw-5 text_white">Summer sale discount off 70%</a></p>-->
+<!--                                </div>-->
+<!--                                <div class="swiper-slide">-->
+<!--                                    <p class="top-bar-text fw-5 text_white">Time to refresh your wardrobe.</a></p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                     <div class="top-bar-language tf-cur justify-content-end">
 
@@ -118,7 +118,7 @@ if (isset($this->params['meta_description'])) {
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
                         <a href="/" class="logo-header">
-                            <img src="logo.png" style="height: 100px; width: 100px" alt="logo" class="logo">
+                            <img src="/logo.png" style="height: 100px; width: 100px" alt="logo" class="logo">
                         </a>
                     </div>
                     <div class="col-xl-6 tf-md-hidden">
@@ -135,12 +135,12 @@ if (isset($this->params['meta_description'])) {
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/contact" class="item-link">
+                                    <a href="/site/contact" class="item-link">
                                         <?=Yii::t('app', 'Contact')?>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/about" class="item-link">
+                                    <a href="/site/about" class="item-link">
                                         <?=Yii::t('app', 'About')?>
                                     </a>
                                 </li>
@@ -186,7 +186,7 @@ if (isset($this->params['meta_description'])) {
 
 
         <!-- Footer -->
-        <footer id="footer" class="footer background-black">
+        <footer id="footer" class="footer">
             <div class="footer-wrap wow fadeIn" data-wow-delay="0s">
                 <div class="footer-body">
                     <div class="container">
@@ -194,10 +194,55 @@ if (isset($this->params['meta_description'])) {
                             <div class="col-xl-4 col-md-6 col-12">
                                 <div class="footer-infor">
                                     <div class="footer-logo">
-                                        <a href="index.html">
-                                            <img src="front/images/logo/logo-white.svg" alt="">
+                                        <a href="/">
+                                            <img src="/logo.png" width="150" alt="">
                                         </a>
                                     </div>
+
+                                    <ul class="tf-social-icon d-flex gap-10 style-blue">
+                                        <li>
+                                            <a href="#" class="box-icon w_34 round social-facebook social-line">
+                                                <i class="icon fs-14 icon-fb"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="box-icon w_34 round social-instagram social-line">
+                                                <i class="icon fs-14 icon-instagram"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6 col-12 footer-col-block">
+                                <div class="footer-heading footer-heading-desktop">
+                                    <h6><?= Yii::t('app', 'Menu')?></h6>
+                                </div>
+                                <div class="footer-heading footer-heading-moblie">
+                                    <h6><?= Yii::t('app', 'Menu')?></h6>
+                                </div>
+                                <ul class="footer-menu-list tf-collapse-content">
+                                    <li>
+                                        <a href="/" class="footer-menu_item"><?= Yii::t('app','Home page')?></a>
+                                    </li>
+                                    <li>
+                                        <a href="/shop" class="footer-menu_item"><?= Yii::t('app','Products')?></a>
+                                    </li>
+                                    <li>
+                                        <a href="/site/contact" class="footer-menu_item"><?= Yii::t('app','Contact')?></a>
+                                    </li>
+                                    <li>
+                                        <a href="/site/about" class="footer-menu_item"><?= Yii::t('app','About')?></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xl-4 col-md-6 col-12 footer-col-block">
+                                <div class="footer-heading footer-heading-desktop">
+                                    <h6>About us</h6>
+                                </div>
+                                <div class="footer-heading footer-heading-moblie">
+                                    <h6>About us</h6>
+                                </div>
+                                <ul class="footer-menu-list tf-collapse-content lh-5">
                                     <ul>
                                         <li>
                                             <p>
@@ -213,75 +258,6 @@ if (isset($this->params['meta_description'])) {
                                                 </a></p>
                                         </li>
                                     </ul>
-                                    <a href="contact-1.html" class="tf-btn btn-line">Get direction<i
-                                                class="icon icon-arrow1-top-left"></i></a>
-                                    <ul class="tf-social-icon d-flex gap-10 style-blue">
-                                        <li>
-                                            <a href="#" class="box-icon w_34 round social-facebook social-line">
-                                                <i class="icon fs-14 icon-fb"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="box-icon w_34 round social-instagram social-line">
-                                                <i class="icon fs-14 icon-instagram"></i>
-                                            </a>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-12 footer-col-block">
-                                <div class="footer-heading footer-heading-desktop">
-                                    <h6>Help</h6>
-                                </div>
-                                <div class="footer-heading footer-heading-moblie">
-                                    <h6>Help</h6>
-                                </div>
-                                <ul class="footer-menu-list tf-collapse-content">
-                                    <li>
-                                        <a href="privacy-policy.html" class="footer-menu_item">Privacy Policy</a>
-                                    </li>
-                                    <li>
-                                        <a href="delivery-return.html" class="footer-menu_item"> Returns + Exchanges
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="shipping-delivery.html" class="footer-menu_item">Shipping</a>
-                                    </li>
-                                    <li>
-                                        <a href="terms-conditions.html" class="footer-menu_item">Terms &amp;
-                                            Conditions</a>
-                                    </li>
-                                    <li>
-                                        <a href="faq-1.html" class="footer-menu_item">FAQ’s</a>
-                                    </li>
-                                    <li>
-                                        <a href="compare.html" class="footer-menu_item">Compare</a>
-                                    </li>
-                                    <li>
-                                        <a href="wishlist.html" class="footer-menu_item">My Wishlist</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-12 footer-col-block">
-                                <div class="footer-heading footer-heading-desktop">
-                                    <h6>About us</h6>
-                                </div>
-                                <div class="footer-heading footer-heading-moblie">
-                                    <h6>About us</h6>
-                                </div>
-                                <ul class="footer-menu-list tf-collapse-content">
-                                    <li>
-                                        <a href="about-us.html" class="footer-menu_item">Our Story</a>
-                                    </li>
-                                    <li>
-                                        <a href="our-store.html" class="footer-menu_item">Visit Our Store</a>
-                                    </li>
-                                    <li>
-                                        <a href="contact-1.html" class="footer-menu_item">Contact Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="login.html" class="footer-menu_item">Account</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -291,8 +267,7 @@ if (isset($this->params['meta_description'])) {
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
-                                <div
-                                        class="footer-bottom-wrap d-flex gap-20 flex-wrap justify-content-between align-items-center">
+                                <div class="footer-bottom-wrap d-flex gap-20 flex-wrap justify-content-between align-items-center">
                                     <div class="footer-menu_item">© <?= date('Y')?> ZeroLab</div>
                                     <div class="tf-payment">
                                         <img src="front/images/payments/visa.png" alt="">
