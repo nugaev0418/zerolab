@@ -1,5 +1,13 @@
-RewriteEngine On
+Options -Indexes
+Options FollowSymlinks
+RewriteEngine on
 
-# frontend
-RewriteRule ^$ frontend/web/ [L]
-RewriteRule ^(.*)$ frontend/web/$1 [L,QSA]
+# Backend
+RewriteCond %{REQUEST_URI} ^/admin/$
+RewriteRule ^(admin)/$ /$1 [R=301,L]
+RewriteCond %{REQUEST_URI} ^/admin
+RewriteRule ^admin(/.+)?$ /backend/web/$1 [L,PT]
+
+# Frontend
+RewriteCond %{REQUEST_URI} ^.*$
+RewriteRule ^(.*)$ /frontend/web/$1
