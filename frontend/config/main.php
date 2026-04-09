@@ -17,6 +17,9 @@ return [
     'controllerNamespace' => 'frontend\controllers',
 
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager'
+        ],
         'i18n' => [
             'translations' => [
                 'app' => [
@@ -81,4 +84,13 @@ return [
         ],
     ],
     'params' => $params,
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+            'shop/*',
+            'product/*',
+            'rbac-admin/*',
+        ]
+    ],
 ];

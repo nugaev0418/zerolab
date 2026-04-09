@@ -17,8 +17,16 @@ return [
         'translatemanager' => [
             'class' => 'lajax\translatemanager\Module',
         ],
+        'rbac-admin' => [
+            'class' => 'mdm\admin\Module',
+            'layout' => 'left-menu',
+            'mainLayout' => '@app/views/layouts/main.php',
+        ],
     ],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager'
+        ],
         'i18n' => [
             'translations' => [
                 '*' => [
@@ -67,4 +75,12 @@ return [
 
     ],
     'params' => $params,
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+            'rbac-admin/*',
+            'rbac-admin/*',
+        ]
+    ],
 ];

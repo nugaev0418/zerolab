@@ -2,7 +2,7 @@
 
 /** @var yii\web\View $this */
 
-$this->title = Yii::t('app', 'Site title');
+$this->title = \common\models\Setting::get('site_name');
 ?>
 
 
