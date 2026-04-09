@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                     ]),
             ],
-            'slug',
+//            'slug',
 
             //'name_ru',
             //'name_en',
