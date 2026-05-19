@@ -2,6 +2,7 @@
 
 use common\models\Brand;
 use common\models\Category;
+use common\models\Direction;
 use common\models\Product;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
@@ -62,6 +63,21 @@ $this->params['breadcrumbs'][] = $this->title;
                             'attribute' => 'brand_id',
                             'data' => ArrayHelper::map(Brand::find()->all(), 'id', 'name_uz'),
                             'options' => ['placeholder' => 'Brand tanlang...'],
+                            'pluginOptions' => [
+                                    'allowClear' => true,
+                            ],
+                    ]),
+            ],
+            [
+                    'attribute' => 'direction_id',
+                    'value' => function ($model) {
+                        return $model->direction->name_uz ?? '';
+                    },
+                    'filter' => Select2::widget([
+                            'model' => $searchModel,
+                            'attribute' => 'direction_id',
+                            'data' => ArrayHelper::map(Direction::find()->all(), 'id', 'name_uz'),
+                            'options' => ['placeholder' => 'Направление tanlang...'],
                             'pluginOptions' => [
                                     'allowClear' => true,
                             ],

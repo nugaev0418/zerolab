@@ -17,15 +17,16 @@ class ProductSearch extends Product
     public function rules()
     {
         return [
-            [['id', 'category_id', 'brand_id', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'category_id', 'brand_id', 'direction_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['slug', 'name_uz', 'name_ru', 'name_en', 'catalog_number', 'short_description_uz', 'short_description_ru', 'short_description_en', 'description_uz', 'description_ru', 'description_en', 'meta_title_uz', 'meta_title_ru', 'meta_title_en', 'meta_description_uz', 'meta_description_ru', 'meta_description_en', 'image'], 'safe'],
 
-            [['category_id', 'brand_id', 'status'], 'integer'],
+            [['category_id', 'brand_id', 'direction_id', 'status'], 'integer'],
         ];
     }
 
     public $category_id;
     public $brand_id;
+    public $direction_id;
 
     /**
      * {@inheritdoc}
@@ -46,7 +47,7 @@ class ProductSearch extends Product
      */
     public function search($params, $formName = null)
     {
-        $query = Product::find()->with(['category', 'brand']);
+        $query = Product::find()->with(['category', 'brand', 'direction']);
 
         // add conditions that should always apply here
 
@@ -67,6 +68,7 @@ class ProductSearch extends Product
             'id' => $this->id,
             'category_id' => $this->category_id,
             'brand_id' => $this->brand_id,
+            'direction_id' => $this->direction_id,
             'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

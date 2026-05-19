@@ -31,7 +31,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-//            'slug',
+            [
+                'label' => Yii::t('app', 'Image'),
+                'format' => 'raw',
+                'value' => function ($model) {
+                    if ($model->image) {
+                        return Html::img('/upload/category/' . $model->image, [
+                            'style' => 'height:48px;width:48px;object-fit:cover;border-radius:8px;',
+                        ]);
+                    }
+                    return '<span class="text-muted">—</span>';
+                },
+            ],
             'name_uz',
 //            'name_ru',
 //            'name_en',

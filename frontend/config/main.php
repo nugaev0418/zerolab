@@ -78,6 +78,8 @@ return [
                 'category/<slug>' => 'category/view',
                 'product/<slug>' => 'product/view',
                 'brand/<slug>' => 'brand/view',
+                'direction' => 'direction/index',
+                'direction/<slug>' => 'direction/view',
                 'shop' => 'shop/index',
                 '' => 'site/index',
             ],
@@ -90,6 +92,9 @@ return [
             'site/*',
             'shop/*',
             'product/*',
+            'category/*',
+            'brand/*',
+            'direction/*',
             'rbac-admin/*',
         ]
     ],

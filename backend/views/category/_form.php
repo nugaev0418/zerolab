@@ -7,7 +7,7 @@ use common\models\Category;
 
 /** @var $model common\models\Category */
 
-$form = ActiveForm::begin();
+$form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]);
 
 ?>
 
@@ -40,6 +40,22 @@ $form = ActiveForm::begin();
 
                 <div class="col-md-4">
                     <?= $form->field($model, 'slug') ?>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold"><?= Yii::t('app', 'Image') ?></label>
+                        <?php if ($model->image): ?>
+                            <div class="mb-2">
+                                <img src="/upload/category/<?= Html::encode($model->image) ?>"
+                                     style="height:120px;width:120px;object-fit:cover;border-radius:12px;border:1px solid #e2e8f0;">
+                            </div>
+                        <?php endif; ?>
+                        <?= $form->field($model, 'imageFile')->fileInput(['accept' => 'image/*'])->label(false) ?>
+                        <div class="form-text text-muted"><?= Yii::t('app', 'JPG, PNG, WEBP. Recommended: 400×400px') ?></div>
+                    </div>
                 </div>
             </div>
 

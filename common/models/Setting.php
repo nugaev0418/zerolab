@@ -45,7 +45,7 @@ class Setting extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['site_name_uz', 'site_name_ru', 'site_name_en', 'about_title_uz', 'about_title_ru', 'about_title_en', 'about_content_uz', 'about_content_ru', 'about_content_en', 'address_uz', 'address_ru', 'address_en', 'phone', 'email', 'telegram', 'instagram', 'facebook', 'updated_at'], 'default', 'value' => null],
+            [['site_name_uz', 'site_name_ru', 'site_name_en', 'about_title_uz', 'about_title_ru', 'about_title_en', 'about_content_uz', 'about_content_ru', 'about_content_en', 'address_uz', 'address_ru', 'address_en', 'phone', 'email', 'location', 'telegram', 'instagram', 'facebook', 'updated_at'], 'default', 'value' => null],
             [['about_content_uz', 'about_content_ru', 'about_content_en', 'address_uz', 'address_ru', 'address_en'], 'string'],
             [['updated_at'], 'integer'],
             [['site_name_uz', 'site_name_ru', 'site_name_en', 'about_title_uz', 'about_title_ru', 'about_title_en'], 'string', 'max' => 255],
@@ -76,6 +76,7 @@ class Setting extends \yii\db\ActiveRecord
             'phone' => Yii::t('app', 'Phone'),
             'email' => Yii::t('app', 'Email'),
             'telegram' => Yii::t('app', 'Telegram'),
+            'location' => Yii::t('app', 'Location'),
             'instagram' => Yii::t('app', 'Instagram'),
             'facebook' => Yii::t('app', 'Facebook'),
             'updated_at' => Yii::t('app', 'Updated At'),

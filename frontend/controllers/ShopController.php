@@ -9,6 +9,7 @@ use Yii;
 use common\models\Product;
 use common\models\Category;
 use common\models\Brand;
+use common\models\Direction;
 
 class ShopController extends Controller
 {
@@ -33,6 +34,12 @@ class ShopController extends Controller
             $query->andWhere(['brand_id' => $selectedBrands]);
         }
 
+        /* DIRECTION FILTER */
+        $selectedDirections = $request->get('direction', []);
+        if (!empty($selectedDirections)) {
+            $query->andWhere(['direction_id' => $selectedDirections]);
+        }
+
         /* SORT */
         $sort = $request->get('sort');
 
@@ -54,13 +61,16 @@ class ShopController extends Controller
 
         $categories = Category::find()->where(['status'=>1])->all();
         $brands = Brand::find()->where(['status'=>1])->all();
+        $directions = Direction::find()->where(['status'=>1])->all();
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'categories' => $categories,
             'brands' => $brands,
+            'directions' => $directions,
             'selectedCategories' => $selectedCategories,
             'selectedBrands' => $selectedBrands,
+            'selectedDirections' => $selectedDirections,
         ]);
     }
 }

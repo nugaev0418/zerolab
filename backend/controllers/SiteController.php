@@ -24,7 +24,7 @@ class SiteController extends Controller
                 'class' => AccessControl::class,
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error', 'lang'],
                         'allow' => true,
                     ],
                     [
@@ -100,5 +100,15 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionLang($lang)
+    {
+        $allowed = ['uz', 'ru', 'en'];
+        if (in_array($lang, $allowed)) {
+            Yii::$app->session->set('admin_language', $lang);
+        }
+        $ref = Yii::$app->request->referrer ?: Yii::$app->homeUrl;
+        return $this->redirect($ref);
     }
 }

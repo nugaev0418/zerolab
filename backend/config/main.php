@@ -29,14 +29,9 @@ return [
         ],
         'i18n' => [
             'translations' => [
-                '*' => [
+                'app' => [
                     'class' => 'yii\i18n\DbMessageSource',
-                    'db' => 'db',
-                    'sourceLanguage' => 'xx-XX', // Developer language
-                    'sourceMessageTable' => '{{%language_source}}',
-                    'messageTable' => '{{%language_translate}}',
-                    'cachingDuration' => 86400,
-                    'enableCaching' => true,
+                    'sourceLanguage' => 'en-US',
                 ],
             ],
         ],
@@ -75,12 +70,26 @@ return [
 
     ],
     'params' => $params,
+    'on beforeRequest' => function () {
+        $lang = Yii::$app->session->get('admin_language');
+        if ($lang && in_array($lang, ['uz', 'ru', 'en'])) {
+            Yii::$app->language = $lang;
+        }
+    },
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
+            'setting/*',
+            'category/*',
+            'direction/*',
+            'product/*',
+            'brand/*',
+            'message/*',
+            'message-source/*',
             'rbac-admin/*',
-            'rbac-admin/*',
+            'translatemanager/*',
+            'debug/*',
         ]
     ],
 ];

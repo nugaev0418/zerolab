@@ -8,11 +8,13 @@ use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
 use common\models\Category;
 use common\models\Brand;
+use common\models\Direction;
 
 $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]);
 
 $categoryList = ArrayHelper::map(Category::find()->all(),'id','name_uz');
 $brandList = ArrayHelper::map(Brand::find()->all(),'id','name_uz');
+$directionList = ArrayHelper::map(Direction::find()->all(),'id','name_uz');
 
 
 $initialPreview = [];
@@ -58,6 +60,14 @@ if (!$model->isNewRecord) {
                             <?= $form->field($model, 'brand_id')->widget(Select2::class, [
                                     'data' => $brandList,
                                     'options' => ['placeholder'=>'Brand tanlang...'],
+                                    'pluginOptions' => ['allowClear'=>true],
+                            ]) ?>
+                        </div>
+
+                        <div class="col-md-12">
+                            <?= $form->field($model, 'direction_id')->widget(Select2::class, [
+                                    'data' => $directionList,
+                                    'options' => ['placeholder'=>'Направление tanlang...'],
                                     'pluginOptions' => ['allowClear'=>true],
                             ]) ?>
                         </div>

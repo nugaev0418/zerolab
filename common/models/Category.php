@@ -10,6 +10,7 @@ use yii\helpers\Inflector;
  *
  * @property int $id
  * @property string|null $slug
+ * @property string|null $image
  * @property string|null $name_uz
  * @property string|null $name_ru
  * @property string|null $name_en
@@ -33,7 +34,7 @@ use yii\helpers\Inflector;
  */
 class Category extends \yii\db\ActiveRecord
 {
-
+    public $imageFile;
 
     /**
      * {@inheritdoc}
@@ -61,11 +62,12 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['slug', 'name_uz', 'name_ru', 'name_en', 'description_uz', 'description_ru', 'description_en', 'meta_title_uz', 'meta_title_ru', 'meta_title_en', 'meta_description_uz', 'meta_description_ru', 'meta_description_en', 'parent_id', 'created_at', 'updated_at'], 'default', 'value' => null],
+            [['slug', 'image', 'name_uz', 'name_ru', 'name_en', 'description_uz', 'description_ru', 'description_en', 'meta_title_uz', 'meta_title_ru', 'meta_title_en', 'meta_description_uz', 'meta_description_ru', 'meta_description_en', 'parent_id', 'created_at', 'updated_at'], 'default', 'value' => null],
+            [['imageFile'], 'file', 'extensions' => 'jpg,jpeg,png,webp', 'skipOnEmpty' => true],
             [['status'], 'default', 'value' => 1],
             [['description_uz', 'description_ru', 'description_en', 'meta_description_uz', 'meta_description_ru', 'meta_description_en'], 'string'],
             [['parent_id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['slug', 'name_uz', 'name_ru', 'name_en', 'meta_title_uz', 'meta_title_ru', 'meta_title_en'], 'string', 'max' => 255],
+            [['slug', 'image', 'name_uz', 'name_ru', 'name_en', 'meta_title_uz', 'meta_title_ru', 'meta_title_en'], 'string', 'max' => 255],
             [['slug'], 'unique'],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['parent_id' => 'id']],
         ];
@@ -79,6 +81,7 @@ class Category extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'slug' => Yii::t('app', 'Slug'),
+            'image' => Yii::t('app', 'Image'),
             'name_uz' => Yii::t('app', 'Name Uz'),
             'name_ru' => Yii::t('app', 'Name Ru'),
             'name_en' => Yii::t('app', 'Name En'),
@@ -142,6 +145,22 @@ class Category extends \yii\db\ActiveRecord
         }
 
         return $data;
+    }
+
+    public function upload()
+    {
+        if ($this->imageFile) {
+            $uploadPath = Yii::getAlias('@frontend') . '/web/upload/category/';
+            if (!is_dir($uploadPath)) {
+                mkdir($uploadPath, 0777, true);
+            }
+            $fileName = uniqid() . '.' . $this->imageFile->extension;
+            if ($this->imageFile->saveAs($uploadPath . $fileName)) {
+                $this->image = $fileName;
+                return true;
+            }
+        }
+        return false;
     }
 
     public function getName()

@@ -92,6 +92,12 @@ $form = ActiveForm::begin();
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-6">
+                    <?= $form->field($model, 'location') ?>
+                </div>
+            </div>
+
         </div>
     </div>
 

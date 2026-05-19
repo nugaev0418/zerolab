@@ -3,18 +3,18 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $lang = Yii::$app->language;
-$this->title = $category->{'meta_title_' . $lang} ?: $category->{'name_' . $lang};
+$this->title = $direction->{'meta_title_' . $lang} ?: $direction->{'name_' . $lang};
 ?>
 
 <div class="page-hero">
     <div class="container">
-        <h1><?= Html::encode($category->{'name_' . $lang}) ?></h1>
+        <h1><?= Html::encode($direction->{'name_' . $lang}) ?></h1>
         <div class="breadcrumb-hero">
             <a href="/"><?= Yii::t('app', 'Home page') ?></a>
             <span>›</span>
-            <a href="<?= Url::to(['shop/index']) ?>"><?= Yii::t('app', 'Products') ?></a>
+            <a href="<?= Url::to(['direction/index']) ?>"><?= Yii::t('app', 'Направления') ?></a>
             <span>›</span>
-            <span><?= Html::encode($category->{'name_' . $lang}) ?></span>
+            <span><?= Html::encode($direction->{'name_' . $lang}) ?></span>
         </div>
     </div>
 </div>
