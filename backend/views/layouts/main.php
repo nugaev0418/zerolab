@@ -25,6 +25,7 @@ $menuItems = [
     ['label' => Yii::t('app', 'Directions'),  'icon' => 'bi-compass',      'url' => ['/direction/index'],      'id' => 'direction'],
     ['label' => Yii::t('app', 'Products'),    'icon' => 'bi-box-seam',     'url' => ['/product/index'],        'id' => 'product'],
     ['label' => Yii::t('app', 'Brands'),      'icon' => 'bi-award',        'url' => ['/brand/index'],          'id' => 'brand'],
+    ['label' => Yii::t('app', 'Sliders'),     'icon' => 'bi-images',       'url' => ['/slider/index'],         'id' => 'slider'],
     ['label' => Yii::t('app', 'Messages'),    'icon' => 'bi-chat-text',    'url' => ['/message/index'],        'id' => 'message'],
     ['label' => Yii::t('app', 'Sources'),     'icon' => 'bi-translate',    'url' => ['/message-source/index'], 'id' => 'message-source'],
     ['label' => Yii::t('app', 'Settings'),    'icon' => 'bi-gear',         'url' => ['/setting'],              'id' => 'setting'],
