@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $lang = Yii::$app->language;
-$this->title = Yii::t('app', 'Направления');
+$this->title = Yii::t('app', 'Directions');
 ?>
 
 <div class="page-hero">

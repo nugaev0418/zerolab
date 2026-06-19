@@ -12,7 +12,7 @@ $this->title = $direction->{'meta_title_' . $lang} ?: $direction->{'name_' . $la
         <div class="breadcrumb-hero">
             <a href="/"><?= Yii::t('app', 'Home page') ?></a>
             <span>›</span>
-            <a href="<?= Url::to(['direction/index']) ?>"><?= Yii::t('app', 'Направления') ?></a>
+            <a href="<?= Url::to(['direction/index']) ?>"><?= Yii::t('app', 'Directions') ?></a>
             <span>›</span>
             <span><?= Html::encode($direction->{'name_' . $lang}) ?></span>
         </div>

@@ -38,6 +38,10 @@ $image = $model->mainImage->image ?? null;
             <?= Html::encode($model->getName()) ?>
         </a>
 
+        <?php if ($model->catalog_number): ?>
+            <div class="product-card-catalog"><?= Html::encode($model->catalog_number) ?></div>
+        <?php endif; ?>
+
         <div class="product-card-meta">
             <span class="product-card-brand">
                 <?php if ($model->brand): ?>
