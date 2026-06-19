@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\ChangePasswordForm;
 use common\models\LoginForm;
 use Yii;
 use yii\filters\VerbFilter;
@@ -28,7 +29,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'change-password'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -100,6 +101,18 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionChangePassword()
+    {
+        $model = new ChangePasswordForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Password changed successfully.'));
+            return $this->redirect(['change-password']);
+        }
+
+        return $this->render('change-password', ['model' => $model]);
     }
 
     public function actionLang($lang)

@@ -87,7 +87,7 @@ return [
 //            'brand/*',
 //            'message/*',
 //            'message-source/*',
-//            'rbac-admin/*',
+            'rbac-admin/*',
 //            'translatemanager/*',
 //            'debug/*',
         ]

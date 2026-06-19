@@ -95,7 +95,7 @@ return [
             'category/*',
             'brand/*',
             'direction/*',
-            'rbac-admin/*',
+//            'rbac-admin/*',
         ]
     ],
 ];

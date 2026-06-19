@@ -114,20 +114,35 @@ $langUrl = function($code) {
                 </div>
 
                 <?php if (!Yii::$app->user->isGuest): ?>
-                    <div class="user-badge">
-                        <div class="user-avatar">
-                            <?= strtoupper(substr(Yii::$app->user->identity->username, 0, 1)) ?>
-                        </div>
-                        <span class="user-name d-none d-sm-inline">
-                            <?= Html::encode(Yii::$app->user->identity->username) ?>
-                        </span>
-                    </div>
-                    <?= Html::beginForm(['/site/logout'], 'post', ['style' => 'display:inline-block']) ?>
-                        <button type="submit" class="btn-logout">
-                            <i class="bi bi-box-arrow-right"></i>
-                            <span class="d-none d-sm-inline"><?= Yii::t('app', 'Logout') ?></span>
+                    <div class="dropdown">
+                        <button class="user-badge dropdown-toggle border-0 bg-transparent p-0"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                style="cursor:pointer;">
+                            <div class="user-avatar">
+                                <?= strtoupper(substr(Yii::$app->user->identity->username, 0, 1)) ?>
+                            </div>
+                            <span class="user-name d-none d-sm-inline">
+                                <?= Html::encode(Yii::$app->user->identity->username) ?>
+                            </span>
                         </button>
-                    <?= Html::endForm() ?>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <?= Html::a(
+                                    '<i class="bi bi-shield-lock me-2"></i>' . Yii::t('app', 'Change Password'),
+                                    ['/site/change-password'],
+                                    ['class' => 'dropdown-item']
+                                ) ?>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <?= Html::beginForm(['/site/logout'], 'post') ?>
+                                    <button type="submit" class="dropdown-item text-danger">
+                                        <i class="bi bi-box-arrow-right me-2"></i><?= Yii::t('app', 'Logout') ?>
+                                    </button>
+                                <?= Html::endForm() ?>
+                            </li>
+                        </ul>
+                    </div>
                 <?php else: ?>
                     <a href="<?= \yii\helpers\Url::to(['/site/login']) ?>" class="btn btn-primary btn-sm">
                         <i class="bi bi-box-arrow-in-right"></i> Kirish
