@@ -42,7 +42,7 @@ $langMeta = [
 $navLinks = [
     ['url' => '/',             'label' => Yii::t('app', 'Home page'),   'prefix' => 'site/index'],
     ['url' => '/shop',         'label' => Yii::t('app', 'Products'),    'prefix' => 'shop/'],
-    ['url' => '/direction',    'label' => Yii::t('app', 'Direction'), 'prefix' => 'direction/'],
+    ['url' => '/direction',    'label' => Yii::t('app', 'Directions'), 'prefix' => 'direction/'],
     ['url' => '/site/contact', 'label' => Yii::t('app', 'Contact'),     'prefix' => 'site/contact'],
     ['url' => '/site/about',   'label' => Yii::t('app', 'About'),       'prefix' => 'site/about'],
 ];
